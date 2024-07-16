@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
-import 'package:login_signup/models/user_model.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -12,7 +11,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
 
-   List<User> users = [];
+   List<dynamic> users = [];
 
      @override
   void initState() {
@@ -27,9 +26,12 @@ class _HomePageState extends State<HomePage> {
       final response = await http.get(url);
       if (response.statusCode == 200) {
         final responseBody = jsonDecode(response.body)["data"];
-        for(var data in responseBody) {
-          users.add(User.fromData(data));
-        }
+        print("responseBody get : $responseBody");
+        setState(() {
+          users = responseBody;
+        });
+            print("Users : $users");
+
       } else {
         print('Erreur de requête : ${response.statusCode}');
       }
@@ -58,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                   color: Color.fromARGB(255, 69, 152, 219)
                   ),
                   child: ListTile(
-                  title: Text(user.email),
+                  title: Text(user['email']),
                 ),
                 );
               },
