@@ -53,8 +53,15 @@ class _HomePageState extends State<HomePage> {
               itemCount: users.length,
               itemBuilder: (context, index) {
                 final user = users[index];
-                return ListTile(
+                return Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                  margin: const EdgeInsets.symmetric(vertical: 1),
+                  decoration: const BoxDecoration(
+                  color: Color.fromARGB(255, 69, 152, 219)
+                  ),
+                  child: ListTile(
                   title: Text(user['email']),
+                ),
                 );
               },
             ),
