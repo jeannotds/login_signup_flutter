@@ -50,19 +50,23 @@ class _HomePageState extends State<HomePage> {
       body: users.isEmpty
           ? const Center(child: CircularProgressIndicator())
           : ListView.builder(
+
               itemCount: users.length,
               itemBuilder: (context, index) {
                 final user = users[index];
-                return Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                  margin: const EdgeInsets.symmetric(vertical: 1),
-                  decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 69, 152, 219)
-                  ),
-                  child: ListTile(
-                  title: Text(user['email']),
-                ),
-                );
+                return GestureDetector(
+                  onTap: (() => print(user)),
+                      child: Container(
+                      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+                      margin: const EdgeInsets.symmetric(vertical: 1),
+                      decoration: const BoxDecoration(
+                      color: Color.fromARGB(255, 69, 152, 219)
+                      ),
+                      child: ListTile(
+                      title: Text(user['email']),
+                    ),
+                    ),
+                );                 
               },
             ),
 
