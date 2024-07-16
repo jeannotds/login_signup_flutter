@@ -51,7 +51,6 @@ class _HomePageState extends State<HomePage> {
               itemCount: users.length,
               itemBuilder: (context, index) {
                 final user = users[index];
-                print("user $user");
                 return Container(
                   padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
                   margin: const EdgeInsets.symmetric(vertical: 1),
