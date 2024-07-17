@@ -4,7 +4,8 @@ import 'package:login_signup/models/user_model.dart';
 
 class DetailPage extends StatefulWidget {
    final User user;
-   DetailPage({super.key, required this.user});
+   const DetailPage({super.key, required this.user});
+   
 
   @override
   State<DetailPage> createState() => _DetailPageState();
@@ -13,6 +14,8 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      child: Center(child: Text(widget.user.email),),
+    );
   }
 }
