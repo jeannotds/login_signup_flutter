@@ -29,15 +29,9 @@ class _HomePageState extends State<HomePage> {
       final response = await http.get(url);
       if (response.statusCode == 200) {
         final responseBody = jsonDecode(response.body)["data"];
-        print("responseBody get : $responseBody");
         setState(() {
-          // users = responseBody;
           users = (responseBody as List).map((data) => User.fromData(data)).toList();
-          // for (var data in responseBody as List) { 
-          //     users.add(User.fromData(data));
-          // }
         });
-
       } else {
         print('Erreur de requête : ${response.statusCode}');
       }
