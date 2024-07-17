@@ -32,10 +32,10 @@ class _HomePageState extends State<HomePage> {
         print("responseBody get : $responseBody");
         setState(() {
           // users = responseBody;
-          // users = (responseBody as List).map((data) => User.fromData(data)).toList();
-          for (var data in responseBody as List) { 
-              users.add(User.fromData(data));
-          }
+          users = (responseBody as List).map((data) => User.fromData(data)).toList();
+          // for (var data in responseBody as List) { 
+          //     users.add(User.fromData(data));
+          // }
         });
 
       } else {

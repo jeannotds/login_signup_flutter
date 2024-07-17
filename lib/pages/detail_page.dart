@@ -14,8 +14,12 @@ class DetailPage extends StatefulWidget {
 class _DetailPageState extends State<DetailPage> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text(widget.user.email),),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Detail"),
+      ),
+
+      body: Center(child: Text(widget.user.email, style: TextStyle(fontSize: 20),),),
     );
   }
 }
